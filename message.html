@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Message for You 💌</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f6f9fc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .card {
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 2rem;
+      text-align: center;
+      max-width: 400px;
+    }
+    h1 { color: #333; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1 id="msg">Loading message...</h1>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const message = params.get("msg");
+    document.getElementById("msg").textContent =
+      message ? decodeURIComponent(message) : "No message provided.";
+  </script>
+</body>
+</html>
